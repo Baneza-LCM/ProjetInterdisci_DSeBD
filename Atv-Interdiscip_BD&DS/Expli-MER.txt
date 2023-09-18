@@ -1,0 +1,118 @@
+-
+
+
+
+
+
+Explicação das criações das tabelas e suas entidades:
+
+   Ao termos o DER pronto, começamos a criar as entidades para o Modelo Entidade-Relacionamento, conhecido também por Modelagem de Dados ou só a sigla MER, para cada tabela. Foram feitas 6 tabelas de acordo com o DER, chamados de Responsavel, Aluno, Matricula, Turma, Professores e Disciplinas, cada uma delas possui uma única chave primária para ser usada como chave estrangeira por outras tabelas que precisarão dessas chaves.
+
+Seguindo as cardinalidades e as ligações de cada tabela com a outra, foram feitas mais 2 tabelas, chamadas de Retem e Leciona. Ou seja, criamos 8 tabelas no total, todas elas possuem cerca de 3 a 7 entidades dentro delas.
+
+Algumas tabelas possuem 2 chaves estrangeiras por causa das cardinalidades, e outras só possuem a chave primária.
+
+
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+
+
+
+**Tabela Responsavel**:
+Na tabela Responsavel, possui 7 entidades que são as informações cruciais para o cadastro do responsável, sendo nome, endereço, entre outros. Sua chave primária está na tabela Aluno como chave estrangeira, sendo assim, um responsável é responsabilizado por um ou mais alunos.
+° (PK)Cod_respon(PK); <_ Identificador único do responsável _>
+
+
+**Tabela Aluno**:
+Na tabela Aluno, na qual possui 7 entidades também, tem relação com a tabela Responsavel pois possui a chave estrangeira dela, o `Cod_respon`. As informações das entidades são básicas mas importantes para a outra tabela que precisará delas, a tabela Matricula.
+° (PK)Cod_aluno(PK); <_ Essa chave primária está também associada na tabela Matricula _>
+° (FK)Cod_respon(FK). <_ Chave estrangeira da tabela Responsavel _>
+
+
+**Tabela Matricula**:
+Em Matricula, a tabela possui 4 entidades, uma delas sendo a chave estrangeira da tabela Aluno e a outra a chave estrangeira da tabela Turma para a decisão de sua sala escolhida com outros alunos também. Essas duas chaves estrangeiras são necessários para a realização da matrícula do aluno.
+Sendo assim, um aluno possuí uma única matrícula e uma matrícula está vinculada a várias turmas.
+° (PK)Cod_matricula(PK); <_ Identificador único da matrícula feita _>
+° (FK)Cod_aluno(FK); <_ Chave estrangeira da tabela Aluno para a realização da matrícula _>
+° (FK)Cod_turma(FK). <_ Chave estrangeira da tabela Turma para a sala escolhida _>
+
+
+**Tabela Turma**:
+A tabela Turma possui 4 entidades, sendo as informações para a escolha de sala de aula do tal aluno, além de ter sua chave primária como chave estrangeira na tabela Matricula e na tabela Retem.
+° (PK)Cod_turma(PK); <_ Essa chave primária também está associado a tabela Matricula _>
+
+
+**Tabela Retem**:
+A tabela Retem possue 3 entidades, uma sendo chave estrangeira da tabela Turma que está associado e a outra a chave estrangeira da tabela Disciplinas. Ambas das tabelas citadas estão associados entre si, sendo que várias turmas podem ter várias disciplinas.
+° (PK)Cod_retem(PK); <_ Identificador único _>
+° (FK)Cod_turma(FK); <_ Chave estrangeira da tabela Turma _>
+° (FK)Cod_disciplina(FK). <_ Chave estrangeira a tabela Disciplinas _>
+
+
+**Tabela Disciplinas**:
+Em Disciplina, a tabela possui 4 entidades, tendo informações sobre as materias de cada turma que esteja associado. Além disso, sua chave primária está ligada como chave estrangeira na tabela Leciona.
+° (PK)Cod_disciplina(PK); <_  _>
+
+
+**Tabela Professores**:
+Dentro da tabela Professores, há 7 entidades, na qual são a base das informações precisas de cada professor da escola. Sua chave primária está ligada a tabela Leciona como chave estrangeira.
+° (PK)Cod_professor(PK); <_  _>
+
+
+**Tabela Leciona**:
+Dentro da tabela Leciona possui 3 entidades, duas são chaves estrangeiras das tabelas Professores e Disciplinas, que estão relacionadas, onde vários professores lecionam uma ou mais disciplinas, seguindo as cardinalidades.
+° (PK)Cod_leciona(PK); <_  _>
+° (FK)Cod_professor(FK); <_  _>
+° (FK)Cod_disciplina(FK). <_  _>
+
+
+
+
+-
+
+
+
+
+Com o DER finalizado, começamos a criar as entidades para o Modelo Entidade-Relacionamento, conhecido também por Modelagem de Dados ou a sigla MER, para cada tabela. Foram criadas 6 tabelas de acordo com o DER, chamados de Responsavel, Aluno, Matricula, Turma, Professores e Disciplinas, cada uma delas possui uma única chave primária para ser usada como chave estrangeira por outras tabelas que precisarão dessas chaves. 
+
+Seguindo as cardinalidades e as ligações de cada tabela entre si, foram criadas mais 2 tabelas, nomeadas de Retem e Leciona. Ou seja, foram criadas 8 tabelas no total, na qual todas elas possuem cerca de 3 a 7 entidades. 
+
+
+
+**Responsável e Aluno**:
+(mer-1[foto])
+
+Na tabela Responsavel há 7 entidades, na qual são informações cruciais para o cadastro do responsável, sendo nome, endereço, telefone, entre outros. Sua chave primária está na tabela Aluno como chave estrangeira, sendo assim, um responsável é responsabilizado por um ou mais alunos. 
+
+O Aluno, na qual possui 7 entidades, tem relação com a tabela Responsavel pois possui a chave estrangeira dela. As informações das entidades são básicas, mas importantes para a outra tabela que precisará delas, a tabela Matricula. 
+
+ 
+
+**Matricula, Turma e Retem**:
+(mer-2[foto])
+
+Em Matricula, a tabela possui 4 entidades, uma delas sendo a chave estrangeira da tabela Aluno, e a outra a chave estrangeira da tabela Turma, para a decisão de sua sala escolhida com outros alunos também. Essas duas chaves estrangeiras são, tecnicamente, necessárias para a realização da matrícula do aluno. 
+
+A tabela Turma possui 4 entidades, sendo as informações para a escolha de sala de aula do aluno e o seu turno. 
+Na tabela Retem possui 3 entidades, uma sendo chave estrangeira da tabela Turma que está associado e outra a chave estrangeira de tabela Disciplinas. Ambas das tabelas citadas estão associadas entre si.
+
+Sendo assim, um aluno possuí uma única matrícula, na qual está vinculada a várias turmas que retem ambas, junto com a tabela Disciplinas. 
+
+ 
+
+**Disciplinas, Professores e Leciona**:
+(mer-3[foto])
+
+Em Disciplinas, a tabela possui 4 entidades, tendo informações sobre as matérias de cada turma que esteja associado. 
+
+Dentro da tabela Professores há 7 entidades, na qual são a base das informações precisas de cada professor da escola. 
+
+A tabela Leciona possui 3 entidades, duas são chaves estrangeiras das tabelas Professores e Disciplinas, onde elas estão relacionadas entre si, sendo que vários professores lecionam uma ou mais disciplinas para várias turmas.
+
+
+Com a explicação das tabelas e suas entidades finalizados, podemos visualizar melhor agora as suas ligações entre as tabelas e suas cardinalidades abaixo, de um ângulo melhor: 
+(MER[foto])
+
+
+
+
+-

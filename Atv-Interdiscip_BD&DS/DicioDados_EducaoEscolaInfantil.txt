@@ -1,0 +1,40 @@
+
+Tabela: Responsavel
+Descrição: Essa tabela junta as informações dos responsáveis dos alunos
+Observações: Sua chave primária está também na tabela Aluno
+					CAMPOS
+Nome:	     | Descrição:					| Tipo de Dado:	| Tamanho: | Restrições de domínio:
+Cod_respon   | Identificador único				| Int		| 	   | PK / Identity
+tipo_respon  | Que responsável é do aluno. ex: Pai, Avó, Tio	| Varchar	| 50	   | Null
+Telefone     | Número de telefone do responsável		| Varchar	| 14	   | Not Null
+Endereco     | Endereço do local do responsável			| Varchar	| 50	   | Not Null
+CPF	     | CPF do responsável				| Varchar	| 14	   | Unique / Not Null
+RG	     | RG do responsável				| Varchar	| 12	   | Unique / Not Null
+Nome	     | Nome completo do responsável			| Varchar	| 100	   | Not Null
+
+
+
+Tabela: Aluno
+Descrição: Esta tabela são informações do aluno
+Observações: Possuí chave estrangeira da tabela Responsavel
+					CAMPOS
+Nome: 	   | Descrição: 				| Tipo de Dado: | Tamanho: | Restrições de domínio:
+Cod_aluno  | Identificador único			| Int		| 	   | PK / Identity
+Nome	   | Nome completo do aluno			| Varchar	| 100	   | Not Null
+Endereco   | Endereço do local onde mora		| Varchar	| 100	   | Not Null
+Dt_nasc    | Data de nascimento do aluno		| Varchar	| 10	   | Not Null
+CPF	   | CPF do aluno				| Varchar	| 14	   | Unique / Not Null
+RG	   | RG do aluno				| Varchar	| 12	   | Unique / Not Null
+Cod_respon | Chave estrangeira da tabela Responsavel	| Int		| 	   | FK
+
+
+
+Tabela: Matricula
+Descrição: Esta tabela traz informações das matrículas dos alunos
+Observações: Possuí duas chaves estrangeiras da tabela Aluno e Turma
+					CAMPOS
+Nome:		| Descrição:			    | Tipo de Dado: | Tamanho:  | Restrições de domínio:
+Cod_matricula	| Identificador único		    | Int	    | 		| PK
+DatadeMatricula	| Data da matrícula realizada	    | Varchar	    | 10	| Not Null
+Cod_aluno	| Chave estrangeira da tabela Aluno | Int	    | 		| FK
+Cod_turma	| Chave estrangeira da tabela Turma | Int	    | 		| FK
